@@ -7,7 +7,7 @@ const app = express()
 app.post('/', (req, res) => {
   res.send('Post request to the homepage')
 })
-// app.use(express.static('public'))
+app.use(express.static('public'))
 
 // 404
 app.use((req, res, next) => {
