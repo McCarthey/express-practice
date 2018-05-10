@@ -13,8 +13,14 @@ app.post("/", (req, res) => {
 })
 
 app.post("/login", urlEncodedParser, (req, res) => {
-    if(!req.body){ return res.sendStatus(400)}
-    res.send(`welcome, ${req.body.username}`)
+    if (!req.body) {
+        return res.sendStatus(400)
+    }
+    if (!req.body.username) {
+        res.send(`Please upload your name`)
+    } else {
+        res.send(`welcome, ${req.body.username}`)
+    }
 })
 
 app.use(express.static("public"))
