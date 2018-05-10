@@ -7,6 +7,9 @@ const app = express()
 app.post('/', (req, res) => {
   res.send('Post request to the homepage')
 })
+app.post('/testJson', (req, res) => {
+  res.json({text:'test json data'})
+})
 app.use(express.static('public'))
 
 // 404
