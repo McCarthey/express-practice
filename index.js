@@ -1,34 +1,41 @@
-const express = require('express')
+const express = require("express")
 const app = express()
+const bodyParser = require("body-parser")
+
+const jsonParser = bodyParser.json()
+const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
 // app.get('/',(req,res)=>{
 //     res.send('Hello World')
 // })
-app.post('/', (req, res) => {
-  res.send('Post request to the homepage')
+app.post("/", (req, res) => {
+    res.send("Post request to the homepage")
 })
-app.post('/testJson', (req, res) => {
-  res.json({text:'test json data'})
+
+app.post("/login", urlEncodedParser, (req, res) => {
+    if(!req.body){ return res.sendStatus(400)}
+    res.send(`welcome, ${req.body.username}`)
 })
-app.use(express.static('public'))
+
+app.use(express.static("public"))
 
 // 404
 app.use((req, res, next) => {
-  res.status(404).send('Oops,page not found')
+    res.status(404).send("Oops,page not found")
 })
 
 const server = app.listen(3000, () => {
-  const host = server.address().address
-  const port = server.address().port
+    const host = server.address().address
+    const port = server.address().port
 
-  console.log(`start on http://${host}:${port}`)
+    console.log(`start on http://${host}:${port}`)
 })
-
 
 /**
  * test post/get command line
- * 
+ *
  * (use cmder in windows):
  *  curl http://localhost:3000/
  *  curl -d "" http://localhost:3000/
+ *  curl -d "" http://localhost:3000/testJson
  */
