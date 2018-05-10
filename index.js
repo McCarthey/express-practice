@@ -5,9 +5,9 @@ const bodyParser = require("body-parser")
 const jsonParser = bodyParser.json()
 const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
-// app.get('/',(req,res)=>{
-//     res.send('Hello World')
-// })
+// mongoose
+const mongoose = require('mongoose')
+
 app.post("/", (req, res) => {
     res.send("Post request to the homepage")
 })
@@ -43,6 +43,8 @@ const server = app.listen(3000, () => {
     console.log(`start on http://${host}:${port}`)
 })
 
+
+mongoose.connect('mongodb://localhost/test')
 /**
  * test post/get command line
  *
