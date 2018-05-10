@@ -23,6 +23,12 @@ app.post("/login", urlEncodedParser, (req, res) => {
     }
 })
 
+app.post("/users",jsonParser,(req,res)=>{
+  if(!req.body){return res.sendStatus(400)}
+  console.log(req.body)
+  res.send(req.body)
+})
+
 app.use(express.static("public"))
 
 // 404
