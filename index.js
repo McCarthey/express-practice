@@ -18,5 +18,14 @@ const server = app.listen(3000, () => {
   const host = server.address().address
   const port = server.address().port
 
-  console.log('start on http://%s:%s', host, port)
+  console.log(`start on http://${host}:${port}`)
 })
+
+
+/**
+ * test post/get command line
+ * 
+ * (use cmder in windows):
+ *  curl http://localhost:3000/
+ *  curl -d "" http://localhost:3000/
+ */
