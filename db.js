@@ -10,7 +10,7 @@ mongoClient.connect(url, (err, db) => {
         { name: "插入多条数据", date: dateFormat() },
         { name: "效果如何", date: dateFormat() }
     ]
-    dbase.collection("demoCollection").insertMany(objArray, (err, res) => {
+    dbase.collection("demoCollectionUndefined").insertMany(objArray, (err, res) => {
         if (err) throw err
         console.log("文档插入成功")
         db.close()
