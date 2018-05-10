@@ -5,9 +5,6 @@ const bodyParser = require("body-parser")
 const jsonParser = bodyParser.json()
 const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
-// mongoose
-const mongoose = require('mongoose')
-
 app.post("/", (req, res) => {
     res.send("Post request to the homepage")
 })
@@ -23,10 +20,12 @@ app.post("/login", urlEncodedParser, (req, res) => {
     }
 })
 
-app.post("/users",jsonParser,(req,res)=>{
-  if(!req.body){return res.sendStatus(400)}
-  console.log(req.body)
-  res.send(req.body)
+app.post("/users", jsonParser, (req, res) => {
+    if (!req.body) {
+        return res.sendStatus(400)
+    }
+    console.log(req.body)
+    res.send(req.body)
 })
 
 app.use(express.static("public"))
@@ -43,8 +42,6 @@ const server = app.listen(3000, () => {
     console.log(`start on http://${host}:${port}`)
 })
 
-
-mongoose.connect('mongodb://localhost/test')
 /**
  * test post/get command line
  *
