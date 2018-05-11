@@ -23,14 +23,6 @@ function dateFormat() {
     let month = date.getMonth() + 1
     let day = date.getDate()
     let hour = date.getHours()
-    let sec = date.getSeconds()
-    let mSec = date.getMinutes()
-    if (hour < 10) {
-        hour = `0${hour}`
-    }
-    let min = date.getMinutes()
-    if (min < 10) {
-        min = `0${min}`
-    }
-    return `${month}月${day}日 ${hour}:${min}:${sec}:${mSec}`
+    
+    return `${month}月${day}日 ${hour}`
 }
