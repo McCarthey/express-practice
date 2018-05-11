@@ -5,14 +5,19 @@ const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json()
 const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
+app.post('/', (req, res) => {
+  res.send('Post request to the homepage')
+})
 app.get('/user/list', (req, res) => {
   res.contentType('json')
   res.send({ title: 'user list' })
 })
-app.post('/', (req, res) => {
-  res.send('Post request to the homepage')
-})
 
+app.get('/user/:id', (req, res) => {
+  console.log(req.params.id)
+  let id = req.params.id
+  res.send(`Welcome user ${id}`)
+})
 app.post('/login', urlEncodedParser, (req, res) => {
   if (!req.body) {
     return res.sendStatus(400)
