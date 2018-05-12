@@ -14,11 +14,16 @@ app.get('/user/list', (req, res) => {
   res.contentType('json')
   res.send({ title: 'user list' })
 })
-// 带参数路由
-app.get('/user/:id', (req, res) => {
+// 带参数路由 并且限制路由参数id只能为数字
+app.get('/user/:id([0-9]+)', (req, res) => {
   console.log(req.params.id)
   let id = req.params.id
   res.send(`Welcome user ${id}`)
+})
+
+app.post('/user/create', (req, res) => {
+  res.contentType('json')
+  res.send({ title: 'user create' })
 })
 
 // post urlEncodedParser
