@@ -15,6 +15,8 @@ app.get('/user/list', (req, res) => {
   res.send({ title: 'user list' })
 })
 // 带参数路由 并且限制路由参数id只能为数字
+// eg: curl http://localhost:3000/user/test => Oops,page not found
+// eg: curl http://localhost:3000/user/90 => Welcome user 90
 app.get('/user/:id([0-9]+)', (req, res) => {
   console.log(req.params.id)
   let id = req.params.id
