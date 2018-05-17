@@ -14,13 +14,6 @@ app.get("/user/list", (req, res) => {
     res.contentType("json")
     res.send({ title: "user list" })
 })
-<<<<<<< HEAD
-// 带参数路由
-app.get("/user/:id", (req, res) => {
-    console.log(req.params.id)
-    let id = req.params.id
-    res.send(`Welcome user ${id}`)
-=======
 // 带参数路由 并且限制路由参数id只能为数字
 // eg: curl http://localhost:3000/user/test => Oops,page not found
 // eg: curl http://localhost:3000/user/90 => Welcome user 90
@@ -28,7 +21,6 @@ app.get('/user/:id([0-9]+)', (req, res) => {
   console.log(req.params.id)
   let id = req.params.id
   res.send(`Welcome user ${id}`)
->>>>>>> 4136f079ce1960923b6768a21bf7999b734fef23
 })
 
 app.post('/user/create', (req, res) => {
