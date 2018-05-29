@@ -15,6 +15,25 @@
     let xhr = new XMLHttpRequest()
     xhr.open('GET', '/user/list')
     xhr.send()
+
+    xhr.onreadystatechange = () => {
+      // open()方法已经被调用 
+      if (xhr.readyState === 1) {
+        console.log('open() is invoked')
+      }
+      // send()方法已经被调用 
+      else if (xhr.readyState === 2) {
+        console.log('send() is invoked')
+      } 
+      else if (xhr.readyState === 3) {
+        console.log('data is in responseText now')
+      } 
+      else if (xhr.readyState === 4) {
+        console.log('it is done', xhr.response)
+        document.getElementById('res').innerText = JSON.parse(xhr.response).title
+      } 
+      // console.log(xhr.response)
+    }
   }
 </script>
 
