@@ -61,7 +61,7 @@ const server = app.listen(3000, () => {
     const host = server.address().address
     const port = server.address().port
 
-    console.log(`start on http://${host}:${port}`)
+    console.log(`start on http://localhost:${port}`)
 })
 
 /**

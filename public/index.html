@@ -5,6 +5,17 @@
     Hello World
   </h1>
   <h4>This page is powered by express</h4>
+  <button onclick="getUserList()">测试ajax</button>
+  <div id="res"></div>
 </body>
+
+<script>
+  // 测试原生ajax
+  function getUserList() {
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', '/user/list')
+    xhr.send()
+  }
+</script>
 
 </html>
